@@ -5,7 +5,7 @@ const io = require('socket.io')(server);
 
 app.use(cors());
 
-server.listen(80);
+server.listen(3000);
 // WARNING: app.listen(80) will NOT work here!
 
 app.get('/', function (req, res) {
@@ -13,8 +13,7 @@ app.get('/', function (req, res) {
 });
 
 io.on('connection', function (socket) {
-	socket.emit('news', { hello: 'world' });
-	socket.on('my other event', function (data) {
+	socket.on('message', function (data) {
 		console.log(data);
 	});
 });

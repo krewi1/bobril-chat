@@ -1,0 +1,21 @@
+{
+  "name": "chat-client",
+  "version": "1.0.0",
+  "description": "client for chat app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bobril": "^10.2.2",
+    "socket.io-client": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/socket.io-client": "^1.4.32"
+  },
+  "bobril": {
+    "head": "<meta name=\"format-detection\"><style>html, body {width: 100%; height: 100%; overflow: hidden}</style><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta name=\"msapplication-config\" content=\"none\">"
+  }
+}

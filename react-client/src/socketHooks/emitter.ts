@@ -1,16 +1,16 @@
-import * as r from "react";
+import * as b from "react";
 import { SocketContext } from "../app";
 
 export type RoomEmitter = [string, (value: string) => void, () => void];
 
 export function useRoomEmitter(room: string, userName: string): RoomEmitter {
-    const {socket} = r.useContext(SocketContext);
+    const {socket} = b.useContext(SocketContext);
 
     if (!socket) {
-        throw "No socket found in context";
+        throw new Error("No socket found in context");
     }
 
-    const [text, setText] = r.useState("");
+    const [text, setText] = b.useState("");
     return [
         text,
         setText,

@@ -6,7 +6,7 @@ const io = require('socket.io')(server);
 
 app.use(cors());
 
-server.listen(3000);
+server.listen(3001);
 
 app.use(express.static("dist"));
 

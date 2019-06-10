@@ -7,8 +7,6 @@ interface IData {
     fromCurrentUser?: boolean;
 }
 
-b.injectCss("@keyframes fadeIn { from {opacity: 0; transform: translateY(100%);} to {opacity: 1;}}");
-
 export function Message(data: IData) {
     const {
         author,
@@ -31,7 +29,7 @@ export function Message(data: IData) {
     )
 }
 
-const FromCurrent = b.styleDef({
+const FromCurrent = {
     backgroundColor: "#72bf44",
     borderRadius: "5px",
     minWidth: "250px",
@@ -42,9 +40,9 @@ const FromCurrent = b.styleDef({
     minHeight: "50px",
     display: "flex",
     justifyContent: "flex-end"
-});
+};
 
-const FromAnother = b.styleDef({
+const FromAnother = {
     backgroundColor: "gray",
     borderRadius: "5px",
     minWidth: "250px",
@@ -54,11 +52,11 @@ const FromAnother = b.styleDef({
     minHeight: "50px",
     display: "flex",
     justifyContent: "flex-end"
-});
+};
 
-const messageStyle = b.styleDef({
+const messageStyle = {
     display: "flex",
     alignItems: "center",
     animation: "fadeIn .5s linear",
     marginBottom: "5px"
-});
+};

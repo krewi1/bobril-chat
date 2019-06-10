@@ -1,6 +1,6 @@
 import * as b from "react";
-import { ChatPage } from "./index";
 import * as io from "socket.io-client";
+import { ChatPage } from "./chatPage";
 import Socket = SocketIOClient.Socket;
 
 interface ISocketContext {
@@ -13,22 +13,23 @@ export const SocketContext = b.createContext<ISocketContext>({
 
 
 export class App extends b.Component {
-    socket: Socket;
-    constructor() {
-        super();
-        this.socket = io("/");
-        b.addDisposable(this, () => this.socket.close());
+    public socket: Socket;
+    constructor(props: never) {
+        super(props);
+        this.socket = io("http://localhost:3001");
     }
-    componentWillUnmount(): void {
+    public componentWillUnmount(): void {
         this.socket.close();
     }
 
-    render() {
-        b.useProvideContext(SocketContext, {
-            socket: this.socket
-        });
+    public render() {
+        debugger;
         return (
-            <ChatPage/>
+            <SocketContext.Provider value={{
+                socket: this.socket
+            }}>
+                <ChatPage/>
+            </SocketContext.Provider>
         )
     }
 

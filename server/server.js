@@ -1,4 +1,5 @@
-const app = require('express')();
+const express = require("express");
+const app = express();
 const server = require('http').Server(app);
 const cors = require('cors');
 const io = require('socket.io')(server);
@@ -7,9 +8,7 @@ app.use(cors());
 
 server.listen(3000);
 
-app.get('/', function (req, res) {
-	res.sendFile(__dirname + '/index.html');
-});
+app.use(express.static("dist"));
 
 io.on('connection', function (socket) {
 	socket.join("defRoom");

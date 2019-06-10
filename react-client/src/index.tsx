@@ -1,4 +1,4 @@
-import * as b from "bobril";
+import * as b from "react";
 import { Layout } from "./layout";
 import { ChatWindow } from "./chatWindow";
 import { InteractionRow } from "./interactionRow";

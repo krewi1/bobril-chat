@@ -1,10 +1,11 @@
 {
-  "name": "chat-server",
+  "name": "chat-app",
   "version": "1.0.0",
   "description": "tutorial for bobril with socket.io",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "build": "cd client && bb b -d ../server/dist",
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

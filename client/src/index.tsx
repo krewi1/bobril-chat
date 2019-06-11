@@ -23,14 +23,25 @@ export function ChatPage() {
                                                                            fromCurrentUser={author === userName}/>)}
             </ChatWindow>
             <InteractionRow>
-                <textarea value={text} onChange={setText} style={{display: "block", flexGrow: 1, marginRight: "10px"}}/>
+                <textarea value={text} onChange={setText} style={TextAreaStyle}/>
                 <button onClick={() => {
                     setText("");
                     submit();
                     return true;
-                }} style={{width: "100px", paddingRight: "15px"}}>Odeslat</button>
+                }} style={ButtonStyle}>Odeslat</button>
             </InteractionRow>
         </Layout>
     )
 }
+
+const ButtonStyle = b.styleDef({
+    width: "100px",
+    paddingRight: "15px"
+});
+
+const TextAreaStyle = b.styleDef({
+    display: "block",
+    flexGrow: 1,
+    marginRight: "10px"
+});
 

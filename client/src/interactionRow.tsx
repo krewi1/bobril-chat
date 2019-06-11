@@ -6,8 +6,14 @@ interface IData {
 
 export function InteractionRow(data: IData) {
     return (
-        <div style={{display: "flex", flexBasis: "100px", paddingBottom: "10px"}}>
+        <div style={InteractionRowStyle}>
             {data.children}
         </div>
     )
 }
+
+const InteractionRowStyle = b.styleDef({
+    display: "flex",
+    flexBasis: "100px",
+    paddingBottom: "10px"
+});

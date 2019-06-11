@@ -20,8 +20,8 @@ export function Message(data: IData) {
     return (
         <div key="chat-message" style={messageStyle}>
             <div>{author}, {time.toDateString()}</div>
-            <div style={{flexGrow: 1, display: "flex"}}>
-                <div style={fromCurrentUser ? FromCurrent : FromAnother}>
+            <div style={WrapperStyle}>
+                <div style={[BaseStyle, fromCurrentUser ? FromCurrent : FromAnother]}>
                     <div>
                         {content}
                     </div>
@@ -31,8 +31,12 @@ export function Message(data: IData) {
     )
 }
 
-const FromCurrent = b.styleDef({
-    backgroundColor: "#72bf44",
+const WrapperStyle = b.styleDef({
+    flexGrow: 1,
+    display: "flex"
+});
+
+const BaseStyle = b.styleDef({
     borderRadius: "5px",
     minWidth: "250px",
     alignItems: "center",
@@ -44,16 +48,12 @@ const FromCurrent = b.styleDef({
     justifyContent: "flex-end"
 });
 
+const FromCurrent = b.styleDef({
+    backgroundColor: "#72bf44",
+});
+
 const FromAnother = b.styleDef({
     backgroundColor: "gray",
-    borderRadius: "5px",
-    minWidth: "250px",
-    alignItems: "center",
-    animation: "fadeIn .5s linear",
-    marginLeft: "auto",
-    minHeight: "50px",
-    display: "flex",
-    justifyContent: "flex-end"
 });
 
 const messageStyle = b.styleDef({

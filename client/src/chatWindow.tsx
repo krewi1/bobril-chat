@@ -6,8 +6,15 @@ interface IData {
 
 export function ChatWindow(data: IData) {
     return (
-        <div style={{display: "flex", flexGrow: 1, flexDirection: "column", overflowY: "auto"}}>
+        <div style={ChatWindowStyle}>
             {data.children}
         </div>
     )
 }
+
+const ChatWindowStyle = b.styleDef({
+    display: "flex",
+    flexGrow: 1,
+    flexDirection: "column",
+    overflowY: "auto"
+});

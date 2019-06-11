@@ -1,4 +1,5 @@
 import * as b from "react";
+import "./chat.css";
 
 interface IData {
     content: string;

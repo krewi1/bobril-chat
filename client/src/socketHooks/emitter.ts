@@ -1,5 +1,5 @@
 import * as b from "bobril";
-import { SocketContext } from "../../index";
+import { SocketContext } from "../app";
 
 export type RoomEmitter = [string, (value: string) => void, () => void];
 

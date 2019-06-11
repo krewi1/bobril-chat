@@ -1,4 +1,4 @@
-import * as b from "bobril/index";
+import * as b from "bobril";
 import { ChatPage } from "./index";
 import Socket = SocketIOClient.Socket;
 
@@ -15,7 +15,7 @@ export class App extends b.Component {
     socket: Socket;
     constructor() {
         super();
-        this.socket = io("/");
+        this.socket = io("http://localhost:3001");
         b.addDisposable(this, () => this.socket.close());
     }
     render() {

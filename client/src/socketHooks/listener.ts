@@ -1,5 +1,6 @@
 import * as b from "bobril";
-import { SocketContext } from "../../index";
+import { SocketContext } from "../app";
+
 interface IMessage {
     message: string;
     author: string;

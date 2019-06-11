@@ -5,11 +5,7 @@ interface IData {
 }
 
 export function ChatWindow(data: IData) {
-    return (
-        <div style={ChatWindowStyle}>
-            {data.children}
-        </div>
-    )
+    return <div style={ChatWindowStyle}>{data.children}</div>;
 }
 
 const ChatWindowStyle = b.styleDef({

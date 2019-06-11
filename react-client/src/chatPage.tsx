@@ -13,24 +13,31 @@ export function ChatPage() {
     return (
         <Layout>
             <div>
-                <label style={{paddingRight: "10px"}}>Uživatelské jméno</label>
-                <input onChange={(event: b.ChangeEvent<HTMLInputElement>) => setUserName(event.target.value)}/>
+                <label style={{ paddingRight: "10px" }}>Uživatelské jméno</label>
+                <input onChange={(event: b.ChangeEvent<HTMLInputElement>) => setUserName(event.target.value)} />
             </div>
             <ChatWindow>
-                {messages.map(({message, author, created}, index) => <Message key={`${index}`} content={message}
-                                                                           author={author}
-                                                                           time={created}
-                                                                           fromCurrentUser={author === userName}/>)}
+                {messages.map(({ message, author, created }, index) => (
+                    <Message key={`${index}`} content={message} author={author} time={created} fromCurrentUser={author === userName} />
+                ))}
             </ChatWindow>
             <InteractionRow>
-                <textarea value={text} onChange={(event: b.ChangeEvent<HTMLTextAreaElement>) => setText(event.target.value)} style={{display: "block", flexGrow: 1, marginRight: "10px"}}/>
-                <button onClick={() => {
-                    setText("");
-                    submit();
-                    return true;
-                }} style={{width: "100px", paddingRight: "15px"}}>Odeslat</button>
+                <textarea
+                    value={text}
+                    onChange={(event: b.ChangeEvent<HTMLTextAreaElement>) => setText(event.target.value)}
+                    style={{ display: "block", flexGrow: 1, marginRight: "10px" }}
+                />
+                <button
+                    onClick={() => {
+                        setText("");
+                        submit();
+                        return true;
+                    }}
+                    style={{ width: "100px", paddingRight: "15px" }}
+                >
+                    Odeslat
+                </button>
             </InteractionRow>
         </Layout>
-    )
+    );
 }
-

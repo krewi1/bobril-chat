@@ -13,7 +13,7 @@ interface IMessageIncome {
 }
 
 export function useRoomListener(room: string): IMessage[] {
-    const {socket} = b.useContext(SocketContext);
+    const { socket } = b.useContext(SocketContext);
 
     if (!socket) {
         throw new Error("No socket found in context");
@@ -22,17 +22,20 @@ export function useRoomListener(room: string): IMessage[] {
     const [messages, setMessages] = b.useState<IMessage[]>([]);
 
     b.useEffect(() => {
-        socket.on(room, ({author, created, message}: IMessageIncome) => {
-            setMessages(messagess => [...messagess, {
-                author,
-                message,
-                created: new Date(created)
-            }])
+        socket.on(room, ({ author, created, message }: IMessageIncome) => {
+            setMessages(messagess => [
+                ...messagess,
+                {
+                    author,
+                    message,
+                    created: new Date(created)
+                }
+            ]);
         });
         return () => {
             socket.off(room);
         };
     }, [room, socket]);
 
-    return messages
+    return messages;
 }

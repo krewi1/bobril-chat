@@ -10,25 +10,20 @@ interface IData {
 b.injectCss("@keyframes fadeIn { from {opacity: 0; transform: translateY(100%);} to {opacity: 1;}}");
 
 export function Message(data: IData) {
-    const {
-        author,
-        content,
-        time,
-        fromCurrentUser = false
-    } = data;
+    const { author, content, time, fromCurrentUser = false } = data;
 
     return (
         <div key="chat-message" style={messageStyle}>
-            <div>{author}, {time.toDateString()}</div>
+            <div>
+                {author}, {time.toDateString()}
+            </div>
             <div style={WrapperStyle}>
                 <div style={[BaseStyle, fromCurrentUser ? FromCurrent : FromAnother]}>
-                    <div>
-                        {content}
-                    </div>
+                    <div>{content}</div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 const WrapperStyle = b.styleDef({
@@ -49,11 +44,11 @@ const BaseStyle = b.styleDef({
 });
 
 const FromCurrent = b.styleDef({
-    backgroundColor: "#72bf44",
+    backgroundColor: "#72bf44"
 });
 
 const FromAnother = b.styleDef({
-    backgroundColor: "gray",
+    backgroundColor: "gray"
 });
 
 const messageStyle = b.styleDef({

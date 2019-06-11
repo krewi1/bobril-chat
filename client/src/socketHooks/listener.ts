@@ -14,7 +14,7 @@ interface IMessageIncome {
 }
 
 export function useRoomListener(room: string): IMessage[] {
-    const {socket} = b.useContext(SocketContext);
+    const { socket } = b.useContext(SocketContext);
 
     if (!socket) {
         throw "No socket found in context";
@@ -23,18 +23,21 @@ export function useRoomListener(room: string): IMessage[] {
     const [messages, setMessages] = b.useState<IMessage[]>([]);
 
     b.useEffect(() => {
-        socket.on(room, ({author, created, message}: IMessageIncome) => {
+        socket.on(room, ({ author, created, message }: IMessageIncome) => {
             debugger;
-            setMessages(messages => [...messages, {
-                author,
-                message,
-                created: new Date(created)
-            }])
+            setMessages(messages => [
+                ...messages,
+                {
+                    author,
+                    message,
+                    created: new Date(created)
+                }
+            ]);
         });
         return () => {
             socket.off(room);
         };
     }, [room, socket]);
 
-    return messages
+    return messages;
 }

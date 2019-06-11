@@ -9,25 +9,20 @@ interface IData {
 }
 
 export function Message(data: IData) {
-    const {
-        author,
-        content,
-        time,
-        fromCurrentUser = false
-    } = data;
+    const { author, content, time, fromCurrentUser = false } = data;
 
     return (
         <div key="chat-message" style={messageStyle}>
-            <div>{author}, {time.toDateString()}</div>
-            <div style={{flexGrow: 1, display: "flex"}}>
+            <div>
+                {author}, {time.toDateString()}
+            </div>
+            <div style={{ flexGrow: 1, display: "flex" }}>
                 <div style={fromCurrentUser ? FromCurrent : FromAnother}>
-                    <div>
-                        {content}
-                    </div>
+                    <div>{content}</div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 const FromCurrent = {

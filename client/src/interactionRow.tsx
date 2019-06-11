@@ -5,11 +5,7 @@ interface IData {
 }
 
 export function InteractionRow(data: IData) {
-    return (
-        <div style={InteractionRowStyle}>
-            {data.children}
-        </div>
-    )
+    return <div style={InteractionRowStyle}>{data.children}</div>;
 }
 
 const InteractionRowStyle = b.styleDef({

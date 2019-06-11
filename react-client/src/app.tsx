@@ -4,13 +4,12 @@ import { ChatPage } from "./chatPage";
 import Socket = SocketIOClient.Socket;
 
 interface ISocketContext {
-    socket: Socket | null
+    socket: Socket | null;
 }
 
 export const SocketContext = b.createContext<ISocketContext>({
     socket: null
 });
-
 
 export class App extends b.Component {
     public socket: Socket;
@@ -25,12 +24,13 @@ export class App extends b.Component {
     public render() {
         debugger;
         return (
-            <SocketContext.Provider value={{
-                socket: this.socket
-            }}>
-                <ChatPage/>
+            <SocketContext.Provider
+                value={{
+                    socket: this.socket
+                }}
+            >
+                <ChatPage />
             </SocketContext.Provider>
-        )
+        );
     }
-
 }

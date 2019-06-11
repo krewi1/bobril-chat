@@ -13,25 +13,29 @@ export function ChatPage() {
     return (
         <Layout>
             <div>
-                <label style={{paddingRight: "10px"}}>Uživatelské jméno</label>
-                <input onChange={setUserName}/>
+                <label style={{ paddingRight: "10px" }}>Uživatelské jméno</label>
+                <input onChange={setUserName} />
             </div>
             <ChatWindow>
-                {messages.map(({message, author, created}, index) => <Message key={`${index}`} content={message}
-                                                                           author={author}
-                                                                           time={created}
-                                                                           fromCurrentUser={author === userName}/>)}
+                {messages.map(({ message, author, created }, index) => (
+                    <Message key={`${index}`} content={message} author={author} time={created} fromCurrentUser={author === userName} />
+                ))}
             </ChatWindow>
             <InteractionRow>
-                <textarea value={text} onChange={setText} style={TextAreaStyle}/>
-                <button onClick={() => {
-                    setText("");
-                    submit();
-                    return true;
-                }} style={ButtonStyle}>Odeslat</button>
+                <textarea value={text} onChange={setText} style={TextAreaStyle} />
+                <button
+                    onClick={() => {
+                        setText("");
+                        submit();
+                        return true;
+                    }}
+                    style={ButtonStyle}
+                >
+                    Odeslat
+                </button>
             </InteractionRow>
         </Layout>
-    )
+    );
 }
 
 const ButtonStyle = b.styleDef({
@@ -44,4 +48,3 @@ const TextAreaStyle = b.styleDef({
     flexGrow: 1,
     marginRight: "10px"
 });
-

@@ -6,16 +6,17 @@
   "scripts": {
     "build": "cd client && bb b -d ../server/dist",
     "start": "node server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write **/**/**/**/**/*.{ts,tsx}"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "socket.io": "^2.2.0"
+    "prettier": "^1.18.2"
   },
-  "devDependencies": {
-    "nodemon": "^1.19.1"
+  "prettier": {
+    "printWidth": 140,
+    "tabWidth": 4,
+    "parser": "typescript"
   }
 }

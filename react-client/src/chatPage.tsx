@@ -13,7 +13,7 @@ export function ChatPage() {
     return (
         <Layout>
             <div>
-                <label>UserName</label>
+                <label style={{paddingRight: "10px"}}>Uživatelské jméno</label>
                 <input onChange={(event: b.ChangeEvent<HTMLInputElement>) => setUserName(event.target.value)}/>
             </div>
             <ChatWindow>

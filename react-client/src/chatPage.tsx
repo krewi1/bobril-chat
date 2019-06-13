@@ -18,7 +18,9 @@ export function ChatPage() {
             </div>
             <ChatWindow>
                 {messages.map(({ message, author, created }, index) => (
-                    <Message key={`${index}`} content={message} author={author} time={created} fromCurrentUser={author === userName} />
+                    <Message key={`${index}`} author={author} time={created} fromCurrentUser={author === userName} >
+                        { message }
+                    </Message>
                 ))}
             </ChatWindow>
             <InteractionRow>

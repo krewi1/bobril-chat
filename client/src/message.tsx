@@ -1,16 +1,16 @@
 import * as b from "bobril";
 
 interface IData {
-    content: string;
     author: string;
     time: Date;
     fromCurrentUser?: boolean;
+    children: string
 }
 
 b.injectCss("@keyframes fadeIn { from {opacity: 0; transform: translateY(100%);} to {opacity: 1;}}");
 
 export function Message(data: IData) {
-    const { author, content, time, fromCurrentUser = false } = data;
+    const { author, children, time, fromCurrentUser = false } = data;
 
     return (
         <div key="chat-message" style={messageStyle}>
@@ -19,7 +19,7 @@ export function Message(data: IData) {
             </div>
             <div style={WrapperStyle}>
                 <div style={[BaseStyle, fromCurrentUser ? FromCurrent : FromAnother]}>
-                    <div>{content}</div>
+                    <div>{children}</div>
                 </div>
             </div>
         </div>

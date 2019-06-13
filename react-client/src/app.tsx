@@ -22,7 +22,6 @@ export class App extends b.Component {
     }
 
     public render() {
-        debugger;
         return (
             <SocketContext.Provider
                 value={{

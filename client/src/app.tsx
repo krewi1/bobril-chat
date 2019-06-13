@@ -1,5 +1,5 @@
 import * as b from "bobril";
-import { ChatPage } from "./index";
+import { ChatPage } from "./chatPage";
 import Socket = SocketIOClient.Socket;
 
 interface ISocketContext {

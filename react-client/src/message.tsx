@@ -2,14 +2,14 @@ import * as b from "react";
 import "./chat.css";
 
 interface IData {
-    content: string;
     author: string;
     time: Date;
     fromCurrentUser?: boolean;
+    children: string;
 }
 
 export function Message(data: IData) {
-    const { author, content, time, fromCurrentUser = false } = data;
+    const { author, children, time, fromCurrentUser = false } = data;
 
     return (
         <div key="chat-message" style={messageStyle}>
@@ -18,15 +18,14 @@ export function Message(data: IData) {
             </div>
             <div style={{ flexGrow: 1, display: "flex" }}>
                 <div style={fromCurrentUser ? FromCurrent : FromAnother}>
-                    <div>{content}</div>
+                    <div>{children}</div>
                 </div>
             </div>
         </div>
     );
 }
 
-const FromCurrent = {
-    backgroundColor: "#72bf44",
+const Base = {
     borderRadius: "5px",
     minWidth: "250px",
     alignItems: "center",
@@ -38,16 +37,14 @@ const FromCurrent = {
     justifyContent: "flex-end"
 };
 
+const FromCurrent = {
+    backgroundColor: "#72bf44",
+    ...Base
+};
+
 const FromAnother = {
     backgroundColor: "gray",
-    borderRadius: "5px",
-    minWidth: "250px",
-    alignItems: "center",
-    animation: "fadeIn .5s linear",
-    marginLeft: "auto",
-    minHeight: "50px",
-    display: "flex",
-    justifyContent: "flex-end"
+    ...Base
 };
 
 const messageStyle = {

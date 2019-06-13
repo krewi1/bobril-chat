@@ -24,7 +24,6 @@ export function useRoomListener(room: string): IMessage[] {
 
     b.useEffect(() => {
         socket.on(room, ({ author, created, message }: IMessageIncome) => {
-            debugger;
             setMessages(messages => [
                 ...messages,
                 {

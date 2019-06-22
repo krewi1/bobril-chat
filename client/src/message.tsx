@@ -7,7 +7,15 @@ interface IData {
     children: string
 }
 
-b.injectCss("@keyframes fadeIn { from {opacity: 0; transform: translateY(100%);} to {opacity: 1;}}");
+const animation = b.keyframesDef({
+   from: {
+       opacity: 0,
+       transform: "translateY(100%)"
+   },
+    to: {
+       opacity: 1
+    }
+});
 
 export function Message(data: IData) {
     const { author, children, time, fromCurrentUser = false } = data;
@@ -35,7 +43,6 @@ const BaseStyle = b.styleDef({
     borderRadius: "5px",
     minWidth: "250px",
     alignItems: "center",
-    animation: "fadeIn .5s linear",
     marginBottom: "5px",
     marginLeft: "auto",
     minHeight: "50px",
@@ -54,6 +61,6 @@ const FromAnother = b.styleDef({
 const messageStyle = b.styleDef({
     display: "flex",
     alignItems: "center",
-    animation: "fadeIn .5s linear",
+    animation: animation(".5s linear"),
     marginBottom: "5px"
 });

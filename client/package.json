@@ -9,13 +9,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/socket.io": "^2.1.2",
-    "bobril": "^10.2.2",
+    "bobril": "*",
     "socket.io": "latest",
     "socket.io-client": "^2.2.0",
     "typescript": "^3.5.1"
   },
   "devDependencies": {
+    "@types/socket.io": "^2.1.2",
     "@types/axios": "^0.14.0",
     "@types/lodash": "^4.14.133",
     "@types/redux": "^3.6.0",

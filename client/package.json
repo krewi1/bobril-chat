@@ -9,22 +9,23 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bobril": "*",
+    "bobril": "^14.0.1",
     "socket.io": "latest",
-    "socket.io-client": "^2.2.0",
-    "typescript": "^3.5.1"
+    "socket.io-client": "^2.3.0",
+    "typescript": "^3.7.4"
   },
   "devDependencies": {
-    "@types/socket.io": "^2.1.2",
     "@types/axios": "^0.14.0",
-    "@types/lodash": "^4.14.133",
+    "@types/lodash": "^4.14.149",
     "@types/redux": "^3.6.0",
+    "@types/socket.io": "^2.1.4",
     "@types/socket.io-client": "^1.4.32"
   },
   "bobril": {
     "title": "Bobril chat",
-    "head": "<meta name=\"format-detection\"><script src=\"https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js\"></script><style>html, body {width: 100%; height: 100%; overflow: hidden}</style><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta name=\"msapplication-config\" content=\"none\">",
+    "head": "<meta name=\"format-detection\"><style>html, body {width: 100%; height: 100%; overflow: hidden}</style><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta name=\"msapplication-config\" content=\"none\">",
     "dir": "build",
+    "bbVersion": "1.4.0",
     "compilerOptions": {
       "declaration": true,
       "strict": true,
